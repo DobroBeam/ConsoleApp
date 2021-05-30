@@ -6,9 +6,11 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            string MyName;
-            MyName = "Dmitry";
+            const string MyName = "Dmitry";
             Console.WriteLine(MyName);
+            Console.WriteLine("\t Hello");
+            Console.WriteLine("\n\t world");
+            Console.ReadKey();
         }
     }
 }
