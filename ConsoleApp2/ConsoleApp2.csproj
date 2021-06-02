@@ -5,4 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Console WriteLine %281%29.cs" />
+  </ItemGroup>
+
 </Project>
