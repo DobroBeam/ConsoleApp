@@ -16,24 +16,26 @@ namespace ConsoleApp2
             // Console.WriteLine($"Ushort max value {ushort.MaxValue} \nUshort min value {ushort.MinValue}");
             //Console.ReadKey();
 
-            Console.Write("Ваш любимый цвет: ");
-            var favColor = Console.ReadLine();
-            if (favColor == "red")
-            {
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ваш любимый цвет красный");
-            }
-            else if (favColor == "green")
-            {
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.WriteLine("Ваш любимый цвет зелёный");
-            }
-            else
-            {
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Ваш любимый цвет бирюзовый");
-            }
-            Console.ReadKey();
+
+                Console.Write("Ваш любимый цвет: ");
+                var favColor = Console.ReadLine();
+                if (favColor == "red")
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Ваш любимый цвет красный");
+                }
+                else if (favColor == "green")
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Ваш любимый цвет зелёный");
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Ваш любимый цвет бирюзовый");
+                }
+                Console.ReadKey();
+            
         }
     }   
 }
