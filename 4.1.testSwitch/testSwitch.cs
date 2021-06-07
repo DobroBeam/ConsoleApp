@@ -22,12 +22,18 @@ namespace _4._1.testSwitch
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("Ваш любимый цвет зелёный!");
                     break;
-                default:
+                case "cyan":
                     Console.BackgroundColor = ConsoleColor.Cyan;
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("Ваш любимый цвет бирюзовый!");
+                    break;
+                default:
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Ваш любимый цвет жёлтый!");
                     break;                    
             }
+            Console.ReadKey();
         }
     }
 }
