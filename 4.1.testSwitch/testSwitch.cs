@@ -7,8 +7,8 @@ namespace _4._1.testSwitch
         static void Main(string[] args)
         {
            Console.Write("Введи на английском свой любимый цвет (со строчной буквы):");
-            int k = 0;
-           while (k<3)
+            int t = 0;
+            do
             {
                 var color = Console.ReadLine();
                 switch (color)
@@ -35,12 +35,11 @@ namespace _4._1.testSwitch
                         Console.WriteLine("Ваш любимый цвет жёлтый!");
                         break;
                 }
-                k++;
-                Console.WriteLine(k);
+                t++;
+                Console.WriteLine(t);
             }
-
-
-            Console.ReadKey();
+            while (t < 3);
+           Console.ReadKey();
         }
     }
 }
