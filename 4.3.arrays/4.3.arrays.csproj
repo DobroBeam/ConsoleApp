@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Remove="4.3.2.minValueSearch.cs" />
     <Compile Remove="4.3.4.splitNameToChars.cs" />
+    <Compile Remove="4.3.7.nameReversed.cs" />
     <Compile Remove="TestArrays.cs" />
   </ItemGroup>
 
