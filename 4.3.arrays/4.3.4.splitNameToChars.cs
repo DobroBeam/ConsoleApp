@@ -19,7 +19,7 @@ namespace _4._3.arrays
             {
                 Console.Write("{0} ", symbol);
             }
-
+            // или так! Console.WriteLine("\nПоследняя буква имени: {0}", name[name.Length - 1]);
 
             for (int i=0; i != name.Length+1; i++)
             {
@@ -28,6 +28,7 @@ namespace _4._3.arrays
                     Console.WriteLine("\nПоследняя буква имени: {0}", name[i - 1]);
                 }
             }
+            Console.ReadKey();
 
 
         }
