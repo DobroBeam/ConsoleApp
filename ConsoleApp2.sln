@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4.2.cycles", "4.2.circles\4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.3.arrays", "4.3.arrays\4.3.arrays.csproj", "{8632C10B-F722-4D69-A36A-347D5011ECED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "модуль 4", "модуль 4", "{41EF3512-33A2-4408-BDF1-7493BCAC929F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56732465-F67A-4A04-8499-4B303D6662C0} = {41EF3512-33A2-4408-BDF1-7493BCAC929F}
+		{F58ECC9B-B063-446F-8461-C8CE3FA0616F} = {41EF3512-33A2-4408-BDF1-7493BCAC929F}
+		{8632C10B-F722-4D69-A36A-347D5011ECED} = {41EF3512-33A2-4408-BDF1-7493BCAC929F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDE76E50-C29F-49D2-A6BD-A5A242B1CB0C}
