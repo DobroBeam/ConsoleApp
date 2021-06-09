@@ -2,7 +2,7 @@
 
 namespace _4._2.circles
 {
-    class testCircles
+    class testCycles
     {
         static void Main(string[] args)
         {
