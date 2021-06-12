@@ -6,4 +6,8 @@
     <RootNamespace>_4._4.tuples</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="4.4.2.surveyViaTuple.cs" />
+  </ItemGroup>
+
 </Project>
