@@ -1,28 +1,30 @@
 ﻿using System;
 
-namespace _5._1.methodCall
+namespace _5._2.MethodParameters
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string[] favcolors;
-            favcolors = new string[3];
-            for (int i=0; i < 3; i++)
-            {
-                favcolors[i] = ShowColor();
-                Console.WriteLine("Принято");
-            }
-            Console.WriteLine("\nСписок ваших любимых цветов:");
-            foreach (var item in favcolors)
-            { 
-                Console.Write($"{item} ");
-            }
+            string name, surname;
+            int age;
+            Console.Write("Введите ваше имя: ");
+            name = Console.ReadLine();
+            Console.Write("Введите вашу фамилию: ");
+            surname = Console.ReadLine();
+            Console.Write("Введите ваш возраст: ");
+            age = Convert.ToInt32(Console.ReadLine());
+            ShowColor(name, surname);
+
+            Console.WriteLine("Ваше имя: {0}\nВаша фамилия: {1}\nВаш возраст: {2}", name, surname, age);
+
             ClickToProceed();
         }
-        static string ShowColor()
+
+        static string ShowColor(string name, string surname)
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском маленькими буквами: ");
+            
+            Console.WriteLine("{0} {1},  напишите свой любимый цвет на английском маленькими буквами: ", name, surname);
             var color = Console.ReadLine();
             switch (color)
             {
@@ -57,6 +59,7 @@ namespace _5._1.methodCall
             }
             return color;
         }
+
         static void ClickToProceed()
         {
             Console.ForegroundColor = ConsoleColor.Red;
