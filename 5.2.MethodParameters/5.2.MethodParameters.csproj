@@ -1,9 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>_5._2.MethodParameters</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="5.2.2.ShowColor%28name%29.cs" />
+  </ItemGroup>
 
 </Project>
