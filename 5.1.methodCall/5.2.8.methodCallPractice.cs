@@ -33,9 +33,9 @@ namespace _5._1.methodCall
             ClickToProceed();
         
         }
-        static int[] GetArrayFromConsole() // ввод массива через консоль
+        static int[] GetArrayFromConsole(int num = 5) // ввод массива через консоль
         {
-            var result = new int[5];
+            var result = new int[num]; // объявление массива указанной размерности (по-умолчанию "5")
 
             for (int i = 0; i < result.Length; i++)
             {
