@@ -25,16 +25,22 @@ namespace _5._1.methodCall
             //1.массив чисел,2. признак сортировки логического типа, необязательный параметр, по умолчанию ЛОЖЬ.
             //Метод должен выводить массив на экран. Если значение признака сортировки равно ИСТИНА, то предварительно массив нужно отсортировать.
 
+
+            // 5.2.18. Вызовите сначала метод заполнения данных массива размерности 10, а потом метод его вывода на экран с сортировкой.
+
+            Console.Write("Сколько элементов в вашем массиве? Введите число: ");
+            int arraySize = int.Parse(Console.ReadLine());
+
             Console.Write("Вы хотите отсортировать массив (да/нет): ");
             var needSort = Console.ReadLine();            
             
             if (needSort == "да")
             {            
-                ShowArray(SortArray(GetArrayFromConsole()), true);
+                ShowArray(SortArray(GetArrayFromConsole(arraySize)), true);
             }
             else
             {
-                ShowArray(GetArrayFromConsole());
+                ShowArray(GetArrayFromConsole(arraySize));
             }
 
             ClickToProceed();
@@ -83,7 +89,6 @@ namespace _5._1.methodCall
             }
             return array;
         }
-
         static string ShowColor()
                 {
                     Console.WriteLine("Напишите свой любимый цвет на английском маленькими буквами: ");
