@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>_5._3.parameters</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="5.3.3.ChangeName.cs" />
+    <Compile Remove="5.3.8.refparameters.cs" />
+  </ItemGroup>
+
+</Project>
