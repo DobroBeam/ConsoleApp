@@ -13,12 +13,17 @@ namespace _5._5.recursion
             Echo(iSaid, echoDepth);        
         }
         static void Echo (string saidWord, int deep)
-        {
-            Console.WriteLine(saidWord);
+        {                     
             string modif = saidWord;
             if (modif.Length > 2)
             {
                 modif = modif.Remove(0, 2);
+                
+            }
+            Console.BackgroundColor = (ConsoleColor)deep; // приводим значение глубины deep к типу перечисления ConsoleColor
+            Console.WriteLine("... " + modif);
+            if (deep > 0)
+            {
                 Echo(modif, deep - 1);
             }
             
