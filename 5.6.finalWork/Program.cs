@@ -6,14 +6,18 @@ namespace _5._6.finalWork
     {
         static void Main(string[] args)
         {
-            GetUserData();
+            var(userName, userLastname, userAge, hasPet, petNum, petList, colorNum, favcolors) = GetUserData();
+            ShowData(userName, userLastname, userAge, hasPet, petNum, petList, colorNum, favcolors);
+
+            Console.ReadKey();
         }
 
-        static void GetUserData()
+        static (string userName, string userLastname, int userAge, bool hasPet, int petNum, string[] petList, int colorNum, string[] favcolors) GetUserData()
         {
 
             (string userName, string userLastname, int userAge, bool hasPet, int petNum, string[] petList, int colorNum, string[] favcolors) UserData;
-            
+            UserData.petNum = 0;
+            UserData.petList = new string[] { };
             // имя пользователя
             do
             {
@@ -53,51 +57,55 @@ namespace _5._6.finalWork
 
             }
             while (UserData.userAge <= 0);
-            // наличие питомца
+
+            // наличие питомца            
             do
             {
-                Console.Write("У вас есть питомец (да/нет): ");
+                Console.Write("У вас есть питомец (да/нет): "); // задаем вопрос
 
                 string answer = Console.ReadLine();
-                if (answer == "нет")
+                if (answer == "нет") // если ответ "нет", то выходим
                 {
                     UserData.hasPet = false;
                     break;
                 }
-                else if (answer == "да")
+                else if (answer == "да") // если ответ "да"
                 {
                     UserData.hasPet = true;
-                    do
+                    
+                    do // цикл для проверки не введено ли значение меньше 0
                     {
-                        while (true)
+                        while (true) // цикл для проверки корректности введенных значений
                         {
-                            Console.Write("Сколько у вас питомцев ? (введите число): ");
+                            Console.Write("Сколько у вас питомцев ? (введите число): "); // задаем вопрос сколько питомцев
                             bool ifInt;
-                            checkInt(out UserData.petNum, out ifInt);
-                            if (ifInt == true)
+                            checkInt(out UserData.petNum, out ifInt); // проверяем целое ли число
+                            
+                            if (ifInt == true) // если значение корректно
                             {
                                 UserData.petList = CollectList("Введите имя питомца", UserData.petNum);
                                 break;
                             }
-                            else
+                            else // если значение не корректно
                             {
                                 SystemMessage("Ошибка");
                             }
                         }
-                        if (UserData.petNum <= 0)
+                        if (UserData.petNum <= 0) // если значение <= 0, выводим сообщение
                         {
                             SystemMessage("Неверное количество");
                         }
                     }
-                    while (UserData.petNum <= 0);
-                    break;
+                    while (UserData.petNum <= 0); // возвращаемся в начало цикла если значение <= 0
+                    break; // выходим из цикла если всё ОК
                 }
-                else
+                else // если ответ на вопрос не корректен, выводим сообщение
                 {
                     SystemMessage("Вы не ответили на вопрос");
                 }
             }
             while (true);
+            
             // любимые цвета
             do
             {
@@ -123,10 +131,8 @@ namespace _5._6.finalWork
             }
             while (UserData.colorNum <= 0);
 
-            Console.ReadKey();
-
+            return UserData;
         }
-
         static void checkInt(out int number, out bool check)
         {
             check = Int32.TryParse(Console.ReadLine(), out number);            
@@ -146,6 +152,24 @@ namespace _5._6.finalWork
                 list[i] = item;
             }
             return list;
+        }
+        static void ShowData(string userName, string userLastname, int userAge, bool hasPet, int petNum, string[] petList, int colorNum, string[] favcolors)
+        {
+            Console.WriteLine($"\nВас зовут: {userName} {userLastname}\nВаш возраст: {userAge}");
+            Console.WriteLine($"У вас {(hasPet == false ? "нет питомцев" : petNum > 1 ? $"{petNum} питомцев" : $"{petNum} питомец")}.");
+            if (hasPet == true)
+            {
+                Console.Write($"{(petNum > 1 ? "Имена питомцев:" : "Имя питомца:")}");
+                foreach (var item in petList)
+                {
+                    Console.Write($"{item} ");
+                }
+            }
+            Console.Write($"{(hasPet == false ? "" : "\n")}{(colorNum > 1 ? "Ваши любимые цвета: " : "Ваш любимый цвет: ")}");
+            foreach (var item in favcolors)
+            {
+                Console.Write($"{item} ");
+            }
         }
         static void SystemMessage(string message)
         {
