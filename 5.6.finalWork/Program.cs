@@ -39,7 +39,7 @@ namespace _5._6.finalWork
                 {
                     Console.Write("Введите ваш возраст:");
                     bool ifInt;
-                    checkInt(out UserData.userAge, out ifInt);
+                    checkInt(out UserData.userAge, out ifInt); // проверяем целое ли число с помощью метода checkInt
                     if (ifInt == true)
                     {
                         break;
@@ -83,7 +83,7 @@ namespace _5._6.finalWork
                             
                             if (ifInt == true) // если значение корректно
                             {
-                                UserData.petList = CollectList("Введите имя питомца", UserData.petNum);
+                                UserData.petList = CollectList("Введите имя питомца", UserData.petNum); // присваиваем массиву UserData.petList массив возвращаемый методом CollectList
                                 break;
                             }
                             else // если значение не корректно
@@ -133,25 +133,25 @@ namespace _5._6.finalWork
 
             return UserData;
         }
-        static void checkInt(out int number, out bool check)
+        static void checkInt(out int number, out bool check) // метод для проверки на int
         {
             check = Int32.TryParse(Console.ReadLine(), out number);            
         }
-        static string[] CollectList(string message, int length)
+        static string[] CollectList(string message, int length) // метод для составления списка 
         {
-            string[] list = new string[length];
-            for(int i=0; i < list.Length; i++)
+            string[] list = new string[length]; // задаем массив строк и присваиваем ему длину передаваемую в метод
+            for(int i=0; i < list.Length; i++) // цикл для записи в массив значений
             {
-                string item;
-                do
+                string item; // инициализируем переменную для записи в нее текущего значения
+                do // цикл для проверки пустого значения
                 {
-                    Console.Write($"{message} {i + 1}: ");
-                    item = Console.ReadLine();
+                    Console.Write($"{message} {i + 1}: "); // вывод сообщения + порядкового номера элемента массива строк
+                    item = Console.ReadLine(); // записываем в текущую переменную для записи значение из консоли
                 }
                 while (item == "");
-                list[i] = item;
+                list[i] = item; // записываем в массив текущее значение
             }
-            return list;
+            return list; // возвращаем массив строк
         }
         static void ShowData(string userName, string userLastname, int userAge, bool hasPet, int petNum, string[] petList, int colorNum, string[] favcolors)
         {
