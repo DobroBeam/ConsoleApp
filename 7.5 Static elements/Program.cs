@@ -11,6 +11,22 @@ namespace _7._5_Static_elements
             Helper.Swap(ref num1, ref num2); // передача переменной внутрь статического метода Helper.Swap для того, чтобы этот метод поменял значения передаваемых переменных
             Console.WriteLine(num1);
             Console.WriteLine(num2);
+
+            string str = "Hello";
+            Console.WriteLine(str.GetLastChar());
+            Console.WriteLine("privet".GetLastChar());
+
+            int num3 = 7;
+            int num4 = -13;
+            int num5 = 0;
+
+            Console.WriteLine(num3.GetNegative()); //-7
+            Console.WriteLine(num3.GetPositive()); //7
+            Console.WriteLine(num4.GetNegative()); //-13
+            Console.WriteLine(num4.GetPositive()); //13
+            Console.WriteLine(num5.GetNegative()); //0
+            Console.WriteLine(num5.GetPositive()); //0
+
         }
     }
 
@@ -56,4 +72,44 @@ namespace _7._5_Static_elements
             MaxValue = 2000;
         }
     }
+
+    static class StringExtensions
+    {
+        public static char GetLastChar(this string source)
+        {
+            return source[source.Length - 1];
+        }
+        public static bool ContainsExtansion (this string source)
+        {
+            
+                Console.WriteLine("Вызван метод расширения Contains");
+                return true;
+            
+        }
+    }
+
+    //  Задание 7.5.9
+    //  Для класса int создайте 2 метода расширения: GetNegative() и GetPositive().
+    //  Метод GetNegative должен возвращать отрицательное значение переменной(если оно положительно), либо саму переменную(если оно отрицательно или равно 0).
+    //  Метод GetPositive должен, наоборот, возвращать положительное значение(если оно отрицательно), либо саму переменную(если оно положительно или равно 0).
+    static class IntExtensions
+    {
+        public static int GetNegative(this int source)
+        {
+            if (source > 0)
+            {
+                return -source;
+            }
+            return source; 
+        }
+        public static int GetPositive(this int source)
+        {
+            if (source < 0)
+            {
+                return -source;
+            }
+            return source;
+        }
+    }
+    
 }
