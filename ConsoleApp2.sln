@@ -49,6 +49,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7.3. Abstract classes", "7.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7.5 Static elements", "7.5 Static elements\7.5 Static elements.csproj", "{6018D79F-C619-4223-9195-4708E30A8CDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.6. Generic types", "7.6. Generic types\7.6. Generic types.csproj", "{89735199-6210-42C3-8B11-2BBBE792EACE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,10 @@ Global
 		{6018D79F-C619-4223-9195-4708E30A8CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6018D79F-C619-4223-9195-4708E30A8CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6018D79F-C619-4223-9195-4708E30A8CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89735199-6210-42C3-8B11-2BBBE792EACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89735199-6210-42C3-8B11-2BBBE792EACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89735199-6210-42C3-8B11-2BBBE792EACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89735199-6210-42C3-8B11-2BBBE792EACE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +161,7 @@ Global
 		{C9F5396B-E939-4D6F-A151-B4AC4DF97901} = {15F2D394-CD07-4C75-9528-3F423D1B7A1E}
 		{4925A14D-7C12-410D-9DA3-CF602401A146} = {15F2D394-CD07-4C75-9528-3F423D1B7A1E}
 		{6018D79F-C619-4223-9195-4708E30A8CDF} = {15F2D394-CD07-4C75-9528-3F423D1B7A1E}
+		{89735199-6210-42C3-8B11-2BBBE792EACE} = {15F2D394-CD07-4C75-9528-3F423D1B7A1E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDE76E50-C29F-49D2-A6BD-A5A242B1CB0C}
