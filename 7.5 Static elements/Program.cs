@@ -8,7 +8,7 @@ namespace _7._5_Static_elements
         {
             int num1 = 3;
             int num2 = 58;
-            Helper.Swap(ref num1, ref num2); // передача переменной внутрь метода Helper.Swap для того, чтобы этот метод поменял значения передаваемых переменных
+            Helper.Swap(ref num1, ref num2); // передача переменной внутрь статического метода Helper.Swap для того, чтобы этот метод поменял значения передаваемых переменных
             Console.WriteLine(num1);
             Console.WriteLine(num2);
         }
@@ -37,4 +37,23 @@ namespace _7._5_Static_elements
         }
     }
 
+    //  Задание 7.5.5
+    //  Измените класс Obj так, чтобы статические поля инициализировались в статическом конструкторе:
+
+    class Obj2
+    {
+        public string Name;
+        public string Description;
+
+        public static string Parent;
+        public static int DaysInWeek;
+        public static int MaxValue;
+        
+        static Obj2()
+        {
+            Parent = "System.Object";
+            DaysInWeek = 7;
+            MaxValue = 2000;
+        }
+    }
 }
