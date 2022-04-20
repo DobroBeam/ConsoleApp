@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32407.343
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4.1.testSwitch", "4.1.testSwitch\4.1.testSwitch.csproj", "{56732465-F67A-4A04-8499-4B303D6662C0}"
 EndProject
@@ -49,7 +49,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7.3. Abstract classes", "7.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7.5 Static elements", "7.5 Static elements\7.5 Static elements.csproj", "{6018D79F-C619-4223-9195-4708E30A8CDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.6. Generic types", "7.6. Generic types\7.6. Generic types.csproj", "{89735199-6210-42C3-8B11-2BBBE792EACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7.6. Generic types", "7.6. Generic types\7.6. Generic types.csproj", "{89735199-6210-42C3-8B11-2BBBE792EACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.7. Final work (orders)", "7.7. Final work (orders)\7.7. Final work (orders).csproj", "{34869DEE-DAE0-4A3D-8A6F-2D103FE01359}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +139,10 @@ Global
 		{89735199-6210-42C3-8B11-2BBBE792EACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89735199-6210-42C3-8B11-2BBBE792EACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89735199-6210-42C3-8B11-2BBBE792EACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34869DEE-DAE0-4A3D-8A6F-2D103FE01359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34869DEE-DAE0-4A3D-8A6F-2D103FE01359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34869DEE-DAE0-4A3D-8A6F-2D103FE01359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34869DEE-DAE0-4A3D-8A6F-2D103FE01359}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,6 +168,7 @@ Global
 		{4925A14D-7C12-410D-9DA3-CF602401A146} = {15F2D394-CD07-4C75-9528-3F423D1B7A1E}
 		{6018D79F-C619-4223-9195-4708E30A8CDF} = {15F2D394-CD07-4C75-9528-3F423D1B7A1E}
 		{89735199-6210-42C3-8B11-2BBBE792EACE} = {15F2D394-CD07-4C75-9528-3F423D1B7A1E}
+		{34869DEE-DAE0-4A3D-8A6F-2D103FE01359} = {15F2D394-CD07-4C75-9528-3F423D1B7A1E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDE76E50-C29F-49D2-A6BD-A5A242B1CB0C}
