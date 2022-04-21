@@ -58,13 +58,26 @@ namespace _7._6._Generic_types
     //  Установите ограничения на универсальные типы в классе Car.Такие, чтобы поле Engine могло принимать тип ElectricEngine и GasEngine
     //  , а параметр newPart метода ChangePart мог бы принимать только типы частей машины (Battery, Differential, Wheel).
     //  Для этого вам может понадобиться использовать один из ранее изученных принципов ООП.
-    class Car<T1> where T1:Engine
+
+    //  Задание 7.6.10
+    //  Переименуйте универсальные параметры в более читаемые, например, TEngine и TPart.
+
+    //  Задание 7.6.12
+    //  С учётом полученных знаний по наследованию обобщений, дополните схему классов автомобиля,
+    //  добавив классы для электромобиля и бензинового — ElectricCar и GasCar.
+    //  Подумайте, какой класс или классы можно сделать абстрактными.Сделайте абстрактными их и их члены(по возможности).
+    abstract class Car<TEngine> where TEngine:Engine
     {
-        public T1 Engine;
-        public virtual void ChangePart<T2>(T2 newPart) where T2:CarPart
-        {
-        
-        }
+        public TEngine Engine;
+        public abstract void ChangePart<TPart>(TPart newPart) where TPart : CarPart;        
+    }
+    class ElectricCar:Car<ElectricEngine> 
+    {
+        public override void ChangePart<TPart>(TPart newPart) { }
+    }
+    class GasCar:Car<GasEngine> 
+    {
+        public override void ChangePart<TPart>(TPart newPart) { }
     }
     abstract class Engine { }
     class ElectricEngine:Engine { }

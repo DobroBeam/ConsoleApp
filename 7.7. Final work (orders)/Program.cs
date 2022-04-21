@@ -12,32 +12,70 @@ namespace _7._7.Final_work__orders_
         {
         }
     }
-    class Customer 
+
+    abstract class User 
     {
-        public string firstName;
-        public string lastName;
-        public int phoneNumber;
-        public string eMail;
-        public string deliveryAddress;
+        private string Name { get; set; }
+        private int phoneNumber { get; set; }
+        private string eMail { get; set; }
+        public abstract void AddItem();
     }
-    class Vendor 
+    class Customer : User
+    {        
+        private string deliveryAddress { get; set; }
+        public void Deposit() // метод для пополнения счёта
+        { }
+        public void Buy() // метод для оформления заказа и покупки
+        { }
+        public override void AddItem() 
+        {
+            /*
+             * логика для добавления товара в корзину
+             */
+        }
+        public void RemoveItem() { } // метод для удаления товара из корзины
+    }
+    abstract class Vendor : User
     {
-        public string vendorName;
+        public string vendorName { get; set; }
+        public override void AddItem()
+        {
+            /*
+             * логика для добавления товара в каталог
+             */
+        }
+
     }
     class Individual : Vendor 
     {
-        public int passport;
+        private int passport;        
     }
     class Entity : Vendor 
     {
-        public int taxNumber;
+        private int taxNumber;
     }
-    class Good { }
-    class Order<TDelivery> 
+    class Item 
     {
-        public TDelivery Delivery;
+        public string title;
+        private ushort quantity { get; set; }
+        private uint price { get; set; }
+        private string VendorName;
+    }
+    abstract class Basket 
+    {
+        public Item[] list;
+        public abstract void EditBasket();
+    }
+    class Order 
+    {
+        public Basket OrderList;
+        public Delivery Delivery;
+        public Customer Customer;
+        public Vendor Vendor;
+        public uint TotalPrice;
 
     }
+    class Catalogue { }
     class Delivery 
     {
         public string address;
