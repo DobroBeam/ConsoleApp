@@ -43,10 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Item.cs" />
+    <Compile Include="_classes\Account.cs" />
+    <Compile Include="_classes\Basket.cs" />
+    <Compile Include="_classes\Catalogue.cs" />
+    <Compile Include="_classes\Delivery.cs" />
+    <Compile Include="_classes\Item.cs" />
+    <Compile Include="_classes\Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="_classes\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

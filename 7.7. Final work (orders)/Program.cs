@@ -10,41 +10,11 @@ namespace _7._7.Final_work__orders_
     {
         static void Main(string[] args)
         {
+            Account account = new Account();
+            account.Deposit(10);
+            Console.WriteLine(account.Money);
+            Console.ReadKey();
         }
     }
-
-   
-    
-   
-    abstract class Basket<T>
-    {
-        public T[] list;
-        public abstract void EditBasket();
-    }
-    class Order<T>
-    {
-        public T orderNum;
-        public Basket OrderList;
-        public Delivery Delivery;
-        public Customer Customer;
-        public Vendor Vendor;
-        public uint TotalPrice;
-
-    }
-    class Catalogue { }
-    class Delivery 
-    {
-        public string address;
-    }
-    class HomeDelivery : Delivery
-    {}
-
-    class PickPointDelivery : Delivery
-    {}
-
-    class ShopDelivery : Delivery
-    {}
-
-
 
 }

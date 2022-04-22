@@ -16,8 +16,12 @@ namespace _7._7.Final_work__orders_
     class Customer : User
     {
         private string deliveryAddress { get; set; }
+        private Account account; // композиция
+
         public void Deposit() // метод для пополнения счёта
-        { }
+        {
+            
+        }
         public void Buy() // метод для оформления заказа и покупки
         { }
         public override void AddItem()
