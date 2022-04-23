@@ -8,15 +8,24 @@ namespace _7._7.Final_work__orders_
 {
     class Account
     {
-        public int Id { get; set; }
-        public uint Money=0;
-        public void Deposit(uint value)
+        private int Id { get; set; }
+        private uint Balance;
+        public Account()
         {
-            Money = Money + value;
+            Id = 01;
+            Balance = 0;
         }
-        public void Withdraw(uint value)
+        public uint ShowBalance()
         {
-            Money = Money - value;
+            return Balance;
+        }
+        public void Deposit(uint value) //счет может принимать средства
+        {
+            Balance = Balance + value;
+        }
+        public void Withdraw(uint value) //со счета могут списываться средства
+        {
+            Balance = Balance - value;
         }
     }
 }

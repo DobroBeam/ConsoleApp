@@ -11,8 +11,17 @@ namespace _7._7.Final_work__orders_
         static void Main(string[] args)
         {
             Account account = new Account();
+            Console.WriteLine(account.ShowBalance());
             account.Deposit(10);
-            Console.WriteLine(account.Money);
+            Console.WriteLine(account.ShowBalance());
+
+
+            //Customer newuser = new Customer();
+            //Console.WriteLine();
+            //newuser.Deposit();
+
+            //account.Deposit(10);
+            //Console.WriteLine(account.Balance);
             Console.ReadKey();
         }
     }
