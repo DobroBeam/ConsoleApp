@@ -20,7 +20,10 @@ namespace _7._7.Final_work__orders_
             
             Individual newVendor = new Individual();
             newVendor.AddItem();
-            Catalogue.Show();            
+
+            Catalogue.Show();
+            newVendor.AddItem();
+            Catalogue.Show();
             Console.ReadKey();
 
 

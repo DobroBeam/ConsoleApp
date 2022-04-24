@@ -43,7 +43,7 @@ namespace _7._7.Final_work__orders_
         public string vendorName { get; set; }
         public override void AddItem() //добавление товара в каталог
         {
-            
+
 
             Console.Write("Введите наименование товара: ");
             string newItemName = Console.ReadLine();
@@ -58,10 +58,20 @@ namespace _7._7.Final_work__orders_
             uint newItemQuantity = Convert.ToUInt32(Console.ReadLine());
 
             Item newItem = new Item(newArticle, newItemName, price, newItemQuantity);
-            Catalogue.list[0] = newItem;
-
-            Catalogue.list2[0] = 2;
-
+                        
+            int i = 0;
+            while (true) // цикл для добавления товара в последнюю не занятую ячейку каталога
+            {                
+                if (Catalogue.list[i]==null)
+                {
+                    Catalogue.list[i] = newItem;
+                    break;
+                }
+                else
+                {
+                    i++;
+                }
+            }        
             Console.WriteLine($"Товар добавлен: {newItem.title} || {newItem.article} || цена за шт. {newItem.price} руб. || {newItem.quantity} шт.");
         }
     }
