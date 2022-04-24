@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace _7._7.Final_work__orders_
 {
-    class Item<T>
+    public class Item
     {
         public string title;
-        public T article;
-        private ushort quantity { get; set; }
-        private uint price { get; set; }
-        private string VendorName;
+        public string article;
+        public uint quantity { get; set; }
+        public decimal price { get; set; }
+        public string VendorName;
+        public Item(string article, string title, decimal price, uint quantity)
+        {
+            this.article = article;
+            this.title = title;
+            this.price = price;
+            this.quantity = quantity;
+        }
     }
 }

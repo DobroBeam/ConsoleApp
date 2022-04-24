@@ -8,10 +8,10 @@ namespace _7._7.Final_work__orders_
 {
     abstract class User
     {
-        public Account account; // каждый пользователь имеет свой счёт (композиция)
+        internal Account account; // каждый пользователь имеет свой счёт (композиция)
         public User()
         {
-            Account account = new Account();
+            account = new Account();
         }
         private string Name { get; set; }
         private int phoneNumber { get; set; }
@@ -24,9 +24,9 @@ namespace _7._7.Final_work__orders_
         private string deliveryAddress { get; set; }
         
         
-        public void Deposit() // метод для пополнения счёта
+        public void Deposit(uint value) // метод для пополнения счёта
         {
-            account.Deposit(10);
+            account.Deposit(value);
         }
         public void Buy() // метод для оформления заказа и покупки
         { }
@@ -41,11 +41,28 @@ namespace _7._7.Final_work__orders_
     abstract class Vendor : User
     {
         public string vendorName { get; set; }
-        public override void AddItem()
+        public override void AddItem() //добавление товара в каталог
         {
-            /*
-             * логика для добавления товара в каталог
-             */
+            
+
+            Console.Write("Введите наименование товара: ");
+            string newItemName = Console.ReadLine();
+
+            Console.Write("Введите артикульный номер: ");
+            string newArticle = Console.ReadLine();
+
+            Console.Write("Введите стоимость за единицу товара: ");
+            decimal price = Convert.ToDecimal(Console.ReadLine());
+
+            Console.Write("Введите количество товара на складе: ");
+            uint newItemQuantity = Convert.ToUInt32(Console.ReadLine());
+
+            Item newItem = new Item(newArticle, newItemName, price, newItemQuantity);
+            Catalogue.list[0] = newItem;
+
+            Catalogue.list2[0] = 2;
+
+            Console.WriteLine($"Товар добавлен: {newItem.title} || {newItem.article} || цена за шт. {newItem.price} руб. || {newItem.quantity} шт.");
         }
     }
     class Individual : Vendor

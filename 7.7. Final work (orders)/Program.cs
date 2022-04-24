@@ -10,11 +10,35 @@ namespace _7._7.Final_work__orders_
     {
         static void Main(string[] args)
         {
-            Account account = new Account();
-            Console.WriteLine(account.ShowBalance());
-            account.Deposit(10);
-            Console.WriteLine(account.ShowBalance());
+            Customer newuser = new Customer();
+            Console.WriteLine(newuser.account.Balance);
+            newuser.account.Deposit(10);
+            Console.WriteLine(newuser.account.Balance);
+            newuser.account.Deposit(5);
+            Console.WriteLine(newuser.account.Balance);
 
+            
+            Individual newVendor = new Individual();
+            newVendor.AddItem();
+            Catalogue.Show();            
+            Console.ReadKey();
+
+
+            
+             
+           
+
+
+
+
+
+
+            //Account account = new Account();
+            //Console.WriteLine(account.Balance);
+            //account.Deposit(10);
+            //Console.WriteLine(account.Balance);
+            //account.Withdraw(5);
+            //Console.WriteLine(account.Balance);
 
             //Customer newuser = new Customer();
             //Console.WriteLine();
