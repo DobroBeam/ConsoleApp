@@ -9,7 +9,25 @@ namespace _7._7.Final_work__orders_
     public class Basket
     {
         internal Item[] basketList = new Item[10];
-                
+        internal decimal totalPrice 
+        {
+            get { return totalPrice; }
+            set 
+            { decimal sum = 0; 
+                foreach(Item item in basketList)
+                {
+                    if(item != null)
+                    {
+                        sum += item.price;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                totalPrice = sum;
+            }
+        }   
         public void EditBasket() { }
 
         public void Show()

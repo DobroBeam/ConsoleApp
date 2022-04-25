@@ -13,7 +13,13 @@ namespace _7._7.Final_work__orders_
         public Delivery Delivery;
         public Customer Customer;
         public Vendor Vendor;
-        public uint TotalPrice;
-
+        public decimal TotalPrice;
+        
+        
+        public Order(Basket basket)
+        {
+            OrderList = basket;
+            TotalPrice = basket.totalPrice;
+        }
     }
 }

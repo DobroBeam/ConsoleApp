@@ -14,6 +14,7 @@ namespace _7._7.Final_work__orders_
         {
             account = new Account();
             basket = new Basket();
+            account.Deposit(1000);
 
         }
         private string Name { get; set; }
@@ -56,10 +57,20 @@ namespace _7._7.Final_work__orders_
                     basket.basketList[i].quantity += newitem.quantity;
                     break;
                 }
-            }            
-            
+            }           
         }
-        public void RemoveItem() { } // метод для удаления товара из корзины
+        public void RemoveItem() // метод для удаления товара из корзины
+        {
+
+        } 
+        public void PlaceOrder()
+        {
+            if(basket != null & basket.basketList[0] != null)
+            {
+                Order neworder = new Order(basket);
+                
+            }
+        }
     }
     abstract class Vendor : User
     {
@@ -76,7 +87,7 @@ namespace _7._7.Final_work__orders_
 
             Console.Write("Введите стоимость за единицу товара: ");
             decimal price;
-            while (true)
+            while (true) // проверка введенного значения
             {
                 bool isDecimal = Decimal.TryParse(Console.ReadLine(), out decimal result);
                 if (isDecimal)
@@ -92,7 +103,7 @@ namespace _7._7.Final_work__orders_
 
             Console.Write("Введите количество товара на складе: ");
             uint newItemQuantity;
-            while (true)
+            while (true) // проверка введенного значения
             {
                 bool isUint = UInt32.TryParse(Console.ReadLine(), out uint result);
                 if(isUint)
