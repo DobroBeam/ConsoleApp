@@ -26,10 +26,12 @@ namespace _7._7.Final_work__orders_
             Catalogue.Show();
             Console.ReadKey();
 
+            newuser.AddItem();
+            newuser.AddItem();
+            newuser.AddItem();
+            Console.ReadKey();
 
-            
-             
-           
+
 
 
 
@@ -50,6 +52,18 @@ namespace _7._7.Final_work__orders_
             //account.Deposit(10);
             //Console.WriteLine(account.Balance);
             Console.ReadKey();
+        }
+    }
+    class MotherBoard
+    {
+    }
+    class SystemUnit
+    {
+        private MotherBoard motherBoard;
+
+        public SystemUnit(MotherBoard motherBoard)
+        {
+            this.motherBoard = motherBoard;
         }
     }
 

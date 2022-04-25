@@ -6,9 +6,27 @@ using System.Threading.Tasks;
 
 namespace _7._7.Final_work__orders_
 {
-    abstract class Basket
+    public class Basket
     {
+        internal Item[] basketList = new Item[10];
+        internal uint itemCounter = 0;
         
-        public abstract void EditBasket();
+        public void EditBasket() { }
+
+        public void Show()
+        {
+            Console.WriteLine("В корзине находится следующий товар:");
+            foreach (Item item in basketList)
+            {
+                if (item == null)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"\t {item.title} || {item.article} || цена за шт. {item.price} руб. || {item.quantity} шт.");
+                }
+            }
+        }
     }
 }
