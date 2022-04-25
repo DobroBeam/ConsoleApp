@@ -9,8 +9,6 @@ namespace _7._7.Final_work__orders_
     public class Catalogue
     {
         public static Item[] list = new Item[2];
-        public static int[] list2 = new int[2];
-        
         public static void Show()
         {
             Console.WriteLine("В каталоге находится следующий товар:");
