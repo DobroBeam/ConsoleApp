@@ -38,12 +38,12 @@ namespace _7._7.Final_work__orders_
             /*
              * логика для добавления товара в корзину
              */
-            Catalogue.Show();
+           
             Console.WriteLine("Выберите товар для добавления в корзину");
-            Item newitem = Catalogue.list[Convert.ToInt32(Console.ReadLine()) - 1];
+            Item newitem = new Item(Catalogue.list[Convert.ToInt32(Console.ReadLine()) - 1]);
             Console.WriteLine($"Нужное количество данного товара. Всего доступно: {newitem.quantity} шт.");
-            newitem.quantity = Convert.ToUInt32(Console.ReadLine());
-            
+            newitem.quantity = Convert.ToUInt32(Console.ReadLine());            
+
             for (int i=0; i < basket.basketList.Length; i++)
             {
                 if (basket.basketList[i] == null)
@@ -56,10 +56,8 @@ namespace _7._7.Final_work__orders_
                     basket.basketList[i].quantity += newitem.quantity;
                     break;
                 }
-            }
-
-            basket.basketList[0] = newitem;
-            basket.Show();
+            }            
+            
         }
         public void RemoveItem() { } // метод для удаления товара из корзины
     }

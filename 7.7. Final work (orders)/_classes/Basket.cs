@@ -9,8 +9,7 @@ namespace _7._7.Final_work__orders_
     public class Basket
     {
         internal Item[] basketList = new Item[10];
-        internal uint itemCounter = 0;
-        
+                
         public void EditBasket() { }
 
         public void Show()

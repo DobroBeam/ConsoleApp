@@ -11,22 +11,23 @@ namespace _7._7.Final_work__orders_
         static void Main(string[] args)
         {
             Customer newuser = new Customer();
-            Console.WriteLine(newuser.account.Balance);
-            newuser.account.Deposit(10);
-            Console.WriteLine(newuser.account.Balance);
-            newuser.account.Deposit(5);
-            Console.WriteLine(newuser.account.Balance);
+            //Console.WriteLine(newuser.account.Balance);
+            //newuser.account.Deposit(10);
+            //Console.WriteLine(newuser.account.Balance);
+            //newuser.account.Deposit(5);
+            //Console.WriteLine(newuser.account.Balance);
 
             
             Individual newVendor = new Individual();
             newVendor.AddItem();
-
             Catalogue.Show();
             newVendor.AddItem();
             Catalogue.Show();
-            Console.ReadKey();
+
+            
 
             newuser.AddItem();
+            
             newuser.AddItem();
             newuser.AddItem();
             Console.ReadKey();
@@ -51,6 +52,8 @@ namespace _7._7.Final_work__orders_
 
             //account.Deposit(10);
             //Console.WriteLine(account.Balance);
+            
+            
             Console.ReadKey();
         }
     }
