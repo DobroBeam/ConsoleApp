@@ -8,6 +8,7 @@ namespace _7._7.Final_work__orders_
 {
     class Order
     {
+        
         public int orderNum;
         public Basket OrderList;
         public Delivery Delivery;
@@ -22,4 +23,13 @@ namespace _7._7.Final_work__orders_
             TotalPrice = basket.totalPrice;
         }
     }
+    public static class OrderCounter 
+    {
+        public static int counter
+        {
+            get { return counter; }
+            set { counter += 1; }
+        }
+    }
+    
 }
