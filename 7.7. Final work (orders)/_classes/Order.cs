@@ -17,19 +17,21 @@ namespace _7._7.Final_work__orders_
         public decimal TotalPrice;
         
         
-        public Order(Basket basket)
+        public Order(Basket basket) //, Delivery delivery)
         {
             OrderList = basket;
             TotalPrice = basket.totalPrice;
+            orderNum = OrderCounter.Count();
         }
     }
-    public static class OrderCounter 
+    static class OrderCounter 
     {
-        public static int counter
+        public static int counter = 0;
+        public static int Count()
         {
-            get { return counter; }
-            set { counter += 1; }
+            return counter += 1;
         }
+        
     }
     
 }

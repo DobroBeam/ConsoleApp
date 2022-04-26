@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace _7._7.Final_work__orders_
 {
-    public class Catalogue
+    public sealed class Catalogue
     {
-        public static Item[] list = new Item[2];
+        public static Item[] list = new Item[3]; // массив для хранения объектов типа Item
         public static void Show()
         {
             Console.WriteLine("В каталоге находится следующий товар:");

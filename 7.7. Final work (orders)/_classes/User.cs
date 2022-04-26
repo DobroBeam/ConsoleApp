@@ -17,15 +17,17 @@ namespace _7._7.Final_work__orders_
             account.Deposit(1000);
 
         }
-        private string Name { get; set; }
-        private int phoneNumber { get; set; }
-        private string eMail { get; set; }
+        protected string Name;
+        
+
+        protected int phoneNumber { get; set; }
+        protected string eMail { get; set; }
         public abstract void AddItem(); // каждый пользователь может добавлять товар
     }
     class Customer : User
     {
-       
-        private string deliveryAddress { get; set; }
+
+        private string deliveryAddress;
         
         
         public void Deposit(uint value) // метод для пополнения счёта
@@ -65,12 +67,26 @@ namespace _7._7.Final_work__orders_
         } 
         public void PlaceOrder()
         {
+            
             if(basket != null & basket.basketList[0] != null)
             {
-                Order neworder = new Order(basket);
+                if (account.Balance > basket.totalPrice)
+                {
+                    Order neworder = new Order(basket);
+                    Delivery newdelivery = new Delivery(Name,deliveryAddress,neworder.orderNum);
+                }
+                else
+                {
+                    Console.WriteLine("Недостаточно средств для размещения заказа");
+                }                
                 
             }
+            else
+            {
+                Console.WriteLine("Корзина пуста");
+            }
         }
+
     }
     abstract class Vendor : User
     {
