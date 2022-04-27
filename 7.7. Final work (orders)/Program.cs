@@ -11,9 +11,7 @@ namespace _7._7.Final_work__orders_
         static void Main(string[] args)
         {
             
-            Console.WriteLine(OrderCounter.Count());
-            Console.WriteLine(OrderCounter.Count());
-            HomeDelivery delivery = new HomeDelivery("name", "as", 1);
+            
 
             //Customer newuser = new Customer();
             //Console.WriteLine(newuser.account.Balance);

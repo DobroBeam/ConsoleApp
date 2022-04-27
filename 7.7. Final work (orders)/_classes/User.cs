@@ -17,7 +17,7 @@ namespace _7._7.Final_work__orders_
             account.Deposit(1000);
 
         }
-        protected string Name;
+        protected string Name = "Вася";
         
 
         protected int phoneNumber { get; set; }
@@ -27,7 +27,7 @@ namespace _7._7.Final_work__orders_
     class Customer : User
     {
 
-        private string deliveryAddress;
+        private string deliveryAddress { get; set; }    
         
         
         public void Deposit(uint value) // метод для пополнения счёта
@@ -36,32 +36,42 @@ namespace _7._7.Final_work__orders_
         }
         public void Buy() // метод для оформления заказа и покупки
         { }
-        public override void AddItem()
+        public override void AddItem() // добавление товара из каталога в корзину, 
         {
-            /*
-             * логика для добавления товара в корзину
-             */
-           
             Console.WriteLine("Выберите товар для добавления в корзину");
             Item newitem = new Item(Catalogue.list[Convert.ToInt32(Console.ReadLine()) - 1]);
-            Console.WriteLine($"Нужное количество данного товара. Всего доступно: {newitem.quantity} шт.");
-            newitem.quantity = Convert.ToUInt32(Console.ReadLine());            
+            
+            while (true) // нужное количество выбранного товара
+            {
+                Console.WriteLine($"Введите нужное количество данного товара. Всего доступно: {newitem.quantity} шт.");
+                uint q = Convert.ToUInt32(Console.ReadLine());
+                if (q > newitem.quantity)
+                {
+                    Console.WriteLine("В наличии нет столько товара");
+                }
+                else
+                {
+                    newitem.quantity = q;
+                    break;
+                }
+            }          
+          
 
-            for (int i=0; i < basket.basketList.Length; i++)
+            for (int i=0; i < basket.basketList.Length; i++) // добавляет выбранный товар в первую незанятую ячейку (если артикул товара в текущей ячейке совпадает, добавляет только количество)
             {
                 if (basket.basketList[i] == null)
                 {
                     basket.basketList[i] = newitem;
                     break;
                 }
-                else if(basket.basketList[i].title == newitem.title)
+                else if(basket.basketList[i].article == newitem.article)
                 {
                     basket.basketList[i].quantity += newitem.quantity;
                     break;
                 }
             }           
         }
-        public void RemoveItem() // метод для удаления товара из корзины
+        public void RemoveItem() // удаление товара из корзины
         {
 
         } 
@@ -72,8 +82,47 @@ namespace _7._7.Final_work__orders_
             {
                 if (account.Balance > basket.totalPrice)
                 {
-                    Order neworder = new Order(basket);
-                    Delivery newdelivery = new Delivery(Name,deliveryAddress,neworder.orderNum);
+                    // выбор типа доставки
+                    
+                    
+                    while (true)
+                    {
+                        Console.WriteLine("Выберите тип доставки: \n\t 1 - доставка на дом \n\t 2 - доставка в пункт выдачи");
+                        int toogle = Convert.ToInt32(Console.ReadLine());
+                        if (toogle == 1)
+                        {
+                            Order<HomeDelivery> neworder = new Order<HomeDelivery>(basket, Name);
+                            neworder.delivery = new HomeDelivery(neworder.customer, neworder.orderNum, deliveryAddress, "Деловые линии");
+                            break;
+                        }
+                        if (toogle == 2)
+                        {
+                            Order<PickPointDelivery> neworder = new Order<PickPointDelivery>(basket, Name);
+                            Console.WriteLine("Введите название и адрес пункта выдачи");
+                            neworder.delivery = new PickPointDelivery(neworder.customer, neworder.orderNum, Convert.ToString(Console.ReadLine()));
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Нет такого варианта. Попробуйте снова.");
+                        }
+                    }
+                    account.Withdraw(basket.totalPrice); // списание средств со счета
+
+                    foreach (Item item in basket.basketList) // вычитает из доступного количества в каталоге товара, количество приобретенного
+                    {
+                        foreach (Item item2 in Catalogue.list)
+                        {
+                            if (item.article != item2.article)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                item2.quantity -= item.quantity;
+                            }                            
+                        }                        
+                    }
                 }
                 else
                 {
@@ -134,7 +183,25 @@ namespace _7._7.Final_work__orders_
             }
 
             Item newItem = new Item(newArticle, newItemName, price, newItemQuantity);
-                        
+
+            int i = 0;
+            foreach (Item item in Catalogue.list) // цикл для добавления товара в последнюю не занятую ячейку каталога (если артикул совпадает, то добавляет только количество)
+            {
+                if (item == null)
+                {
+                    Catalogue.list[i] = newItem;
+                }
+                else if (item.article == newItem.article)
+                {
+                    item.quantity += newItem.quantity;
+                }
+                else
+                {
+                    i++;
+                    continue;
+                } 
+            }
+
             int i = 0;
             while (true) // цикл для добавления товара в последнюю не занятую ячейку каталога
             {                

@@ -9,24 +9,24 @@ namespace _7._7.Final_work__orders_
     class Account
     {
         private int Id { get; set; }
-        private uint balance;
+        private decimal balance;
         public Account() // конструктор класса
         {
             Id = 01;
             balance = 0;
         }
-        public uint Balance
+        public decimal Balance
         {
             get
             {
                 return balance;
             }
         }       
-        internal void Deposit(uint value) //счет может принимать средства
+        internal void Deposit(decimal value) //счет может принимать средства
         {
             balance = balance + value;
         }
-        internal void Withdraw(uint value) //со счета могут списываться средства
+        internal void Withdraw(decimal value) //со счета могут списываться средства
         {
             balance = balance - value;
         }

@@ -6,22 +6,41 @@ using System.Threading.Tasks;
 
 namespace _7._7.Final_work__orders_
 {
-    class Order
+    class Order<T>
     {
         
         public int orderNum;
-        public Basket OrderList;
-        public Delivery Delivery;
-        public Customer Customer;
+        public Item[] OrderList;
+        public T delivery;
+        public string customer;
         public Vendor Vendor;
         public decimal TotalPrice;
         
-        
-        public Order(Basket basket) //, Delivery delivery)
+       
+        public Order(Basket basket, string name)
         {
-            OrderList = basket;
+            OrderList = basket.basketList;
             TotalPrice = basket.totalPrice;
+            customer = name;
             orderNum = OrderCounter.Count();
+            
+        }
+        public void Show()
+        {
+            Console.WriteLine($"Заказ #{orderNum}.");
+            Console.WriteLine($"В заказе:");
+            foreach (Item item in OrderList)
+            {
+                if (item == null)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"\t {item.title} || {item.article} || цена за шт. {item.price} руб. || {item.quantity} шт.");
+                }
+            }
+            Console.WriteLine($"Итоговая цена: {TotalPrice} руб.");
         }
     }
     static class OrderCounter 

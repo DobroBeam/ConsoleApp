@@ -12,7 +12,7 @@ namespace _7._7.Final_work__orders_
         internal decimal totalPrice 
         {
             get { return totalPrice; }
-            set 
+            set // подсчитывает общую стоимость товара в корзине
             { decimal sum = 0; 
                 foreach(Item item in basketList)
                 {
