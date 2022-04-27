@@ -26,10 +26,8 @@ namespace _7._7.Final_work__orders_
     }
     class Customer : User
     {
+        private string deliveryAddress { get; set; }
 
-        private string deliveryAddress { get; set; }    
-        
-        
         public void Deposit(uint value) // метод для пополнения счёта
         {
             account.Deposit(value);
@@ -54,9 +52,8 @@ namespace _7._7.Final_work__orders_
                     newitem.quantity = q;
                     break;
                 }
-            }          
+            }         
           
-
             for (int i=0; i < basket.basketList.Length; i++) // добавляет выбранный товар в первую незанятую ячейку (если артикул товара в текущей ячейке совпадает, добавляет только количество)
             {
                 if (basket.basketList[i] == null)
@@ -76,58 +73,73 @@ namespace _7._7.Final_work__orders_
 
         } 
         public void PlaceOrder()
-        {
-            
+        {            
             if(basket != null & basket.basketList[0] != null)
             {
-                if (account.Balance > basket.totalPrice)
+                basket.Total();
+                while (true)
                 {
-                    // выбор типа доставки
-                    
-                    
-                    while (true)
+                    if (account.Balance > basket.totalPrice)
                     {
-                        Console.WriteLine("Выберите тип доставки: \n\t 1 - доставка на дом \n\t 2 - доставка в пункт выдачи");
-                        int toogle = Convert.ToInt32(Console.ReadLine());
-                        if (toogle == 1)
+                        // выбор типа доставки
+                        while (true)
                         {
-                            Order<HomeDelivery> neworder = new Order<HomeDelivery>(basket, Name);
-                            neworder.delivery = new HomeDelivery(neworder.customer, neworder.orderNum, deliveryAddress, "Деловые линии");
-                            break;
-                        }
-                        if (toogle == 2)
-                        {
-                            Order<PickPointDelivery> neworder = new Order<PickPointDelivery>(basket, Name);
-                            Console.WriteLine("Введите название и адрес пункта выдачи");
-                            neworder.delivery = new PickPointDelivery(neworder.customer, neworder.orderNum, Convert.ToString(Console.ReadLine()));
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Нет такого варианта. Попробуйте снова.");
-                        }
-                    }
-                    account.Withdraw(basket.totalPrice); // списание средств со счета
-
-                    foreach (Item item in basket.basketList) // вычитает из доступного количества в каталоге товара, количество приобретенного
-                    {
-                        foreach (Item item2 in Catalogue.list)
-                        {
-                            if (item.article != item2.article)
+                            Console.WriteLine("Выберите тип доставки: \n\t 1 - доставка на дом \n\t 2 - доставка в пункт выдачи");
+                            int toogle = Convert.ToInt32(Console.ReadLine());
+                            if (toogle == 1)
                             {
-                                continue;
+                                Order<HomeDelivery> neworder = new Order<HomeDelivery>(basket, Name);
+                                neworder.delivery = new HomeDelivery(neworder.customer, neworder.orderNum, deliveryAddress, "Деловые линии");
+                                break;
+                            }
+                            if (toogle == 2)
+                            {
+                                Order<PickPointDelivery> neworder = new Order<PickPointDelivery>(basket, Name);
+                                Console.WriteLine("Введите название и адрес пункта выдачи");
+                                neworder.delivery = new PickPointDelivery(neworder.customer, neworder.orderNum, Convert.ToString(Console.ReadLine()));
+                                break;
                             }
                             else
                             {
-                                item2.quantity -= item.quantity;
-                            }                            
-                        }                        
+                                Console.WriteLine("Нет такого варианта. Попробуйте снова.");
+                            }
+                        }
+                        account.Withdraw(basket.totalPrice); // списание средств со счета
+
+                        foreach (Item item in basket.basketList) // вычитает из доступного количества в каталоге товара, количество приобретенного
+                        {
+                            if (item == null)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                foreach (Item item2 in Catalogue.list)
+                                {
+                                    if (item2 == null)
+                                    {
+                                        break;
+                                    }
+                                    if (item.article != item2.article)
+                                    {
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        item2.quantity -= item.quantity;
+                                    }
+
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Недостаточно средств для размещения заказа");
+                        break;
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Недостаточно средств для размещения заказа");
-                }                
                 
             }
             else

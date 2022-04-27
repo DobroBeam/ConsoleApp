@@ -9,25 +9,25 @@ namespace _7._7.Final_work__orders_
     public class Basket
     {
         internal Item[] basketList = new Item[10];
-        internal decimal totalPrice 
+        internal decimal totalPrice;
+
+        public void Total() 
         {
-            get { return totalPrice; }
-            set // подсчитывает общую стоимость товара в корзине
-            { decimal sum = 0; 
-                foreach(Item item in basketList)
+            decimal sum = 0;
+            foreach (Item item in basketList)
+            {
+                if (item != null)
                 {
-                    if(item != null)
-                    {
-                        sum += item.quantity*item.price;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    sum += Convert.ToDecimal(item.quantity) * item.price;
                 }
-                totalPrice = sum;
+                else
+                {
+                    break;
+                }
             }
-        }   
+            totalPrice = sum;            
+        }
+        
         public void EditBasket() { }
 
         public void Show()

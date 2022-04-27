@@ -35,7 +35,7 @@ namespace _7._7.Final_work__orders_
             newuser2.PlaceOrder();
             Console.WriteLine("создан заказ");
             Catalogue.Show();
-            Console.WriteLine($"{newuser2.account.Balance}");
+            Console.WriteLine($"Ваш баланс: {newuser2.account.Balance}");
 
             //newuser.account.Deposit(10);
             //Console.WriteLine(newuser.account.Balance);

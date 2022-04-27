@@ -10,8 +10,8 @@ namespace _7._7.Final_work__orders_
     {
         public string title;
         public string article;
-        public uint quantity { get; set; }
-        public decimal price { get; set; }
+        public uint quantity;
+        public decimal price;
         
         public Item(string article, string title, decimal price, uint quantity)
         {
