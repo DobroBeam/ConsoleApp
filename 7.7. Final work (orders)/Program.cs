@@ -10,11 +10,33 @@ namespace _7._7.Final_work__orders_
     {
         static void Main(string[] args)
         {
-            
-            
 
-            //Customer newuser = new Customer();
-            //Console.WriteLine(newuser.account.Balance);
+            Console.WriteLine("создан пользователь Individual");
+            Individual newuser1 = new Individual();
+
+            newuser1.AddItem();
+            Catalogue.Show();
+            newuser1.AddItem();
+            Catalogue.Show();
+
+            Console.WriteLine("создан пользователь Customer");
+            Customer newuser2 = new Customer();
+            Catalogue.Show();
+            newuser2.AddItem();
+            newuser2.basket.Show();
+            Catalogue.Show();
+            newuser2.AddItem();
+            newuser2.basket.Show();
+            Catalogue.Show();
+            newuser2.AddItem();
+            newuser2.basket.Show();
+            Catalogue.Show();
+
+            newuser2.PlaceOrder();
+            Console.WriteLine("создан заказ");
+            Catalogue.Show();
+            Console.WriteLine($"{newuser2.account.Balance}");
+
             //newuser.account.Deposit(10);
             //Console.WriteLine(newuser.account.Balance);
             //newuser.account.Deposit(5);

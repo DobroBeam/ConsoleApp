@@ -18,7 +18,7 @@ namespace _7._7.Final_work__orders_
                 {
                     if(item != null)
                     {
-                        sum += item.price;
+                        sum += item.quantity*item.price;
                     }
                     else
                     {

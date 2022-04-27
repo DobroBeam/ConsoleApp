@@ -14,7 +14,7 @@ namespace _7._7.Final_work__orders_
         {
             account = new Account();
             basket = new Basket();
-            account.Deposit(1000);
+            account.Deposit(100);
 
         }
         protected string Name = "Вася";
@@ -201,20 +201,7 @@ namespace _7._7.Final_work__orders_
                     continue;
                 } 
             }
-
-            int i = 0;
-            while (true) // цикл для добавления товара в последнюю не занятую ячейку каталога
-            {                
-                if (Catalogue.list[i]==null)
-                {
-                    Catalogue.list[i] = newItem;
-                    break;
-                }
-                else
-                {
-                    i++;
-                }
-            }        
+                   
             Console.WriteLine($"Товар добавлен: {newItem.title} || {newItem.article} || цена за шт. {newItem.price} руб. || {newItem.quantity} шт.");
         }
     }
